@@ -1,0 +1,6 @@
+[tool.ruff]
+line-length = 200
+extend-exclude = ['resources.py']
+
+[tool.ruff.lint]
+select = ['E', 'F', 'I', 'UP', 'B', 'SIM', 'RUF']
