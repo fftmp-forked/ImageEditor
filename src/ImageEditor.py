@@ -80,11 +80,11 @@ from PySide6.QtWidgets import (
 
 try:
     from .CameraDialog import CameraDialog
-    from .image_tools import *
+    from .image_tools import cropCircle, findBorders, perspectiveTransformation, rembg
     from .UndoStack import UndoStack
 except ImportError:
     from CameraDialog import CameraDialog
-    from image_tools import *
+    from image_tools import cropCircle, findBorders, perspectiveTransformation, rembg
     from UndoStack import UndoStack
 try:
     from OpenNumismat import HOME_PATH, IMAGE_PATH, version
