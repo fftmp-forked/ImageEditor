@@ -64,7 +64,7 @@ class ImageEditorWindow(ImageEditorDialog):
         self.navigationMenu.removeAction(self.nextRecordAct)
 
         self.setWindowIcon(QIcon(':/slide.png'))
-        
+
         self.viewer.doubleClicked.connect(self.viewerDoubleClicked)
 
         self.scrollPanel.hide()
@@ -119,7 +119,7 @@ class ImageEditorWindow(ImageEditorDialog):
                     image.loadFromFile(file.filePath())
                     image.imageEdited.connect(self.imageEdited)
                     proxy.append(image)
-    
+
                 proxy.setCurrent(files[0].filePath())
                 self.setImageProxy(proxy)
                 self.scrollPanel.show()

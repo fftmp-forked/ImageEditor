@@ -114,9 +114,9 @@ class CropDialog(QDialog):
     def __init__(self, width, height, auto_rect, parent):
         super().__init__(parent, Qt.WindowCloseButtonHint)
         self.setWindowTitle(self.tr("Crop"))
-        
+
         self.auto_rect = auto_rect
-        
+
         self.rectAutoButton = QPushButton(self.tr("Auto"))
         self.rectAutoButton.clicked.connect(self.setAutoBorders)
         self.xSpin = QSpinBox()
@@ -256,7 +256,7 @@ class CropDialog(QDialog):
 
     def currentTool(self):
         return self.tab.currentIndex()
-    
+
     def setAutoBorders(self):
         if self.currentTool() == 0:
             self.xSpin.setValue(self.auto_rect[0])
@@ -704,7 +704,7 @@ class GraphicsBoundingItem(QObject):
         self.rectChanged.emit()
 
         return pos
-    
+
     def is_convex(self, xa, ya, xb, yb, xc, yc, xd, yd):
         t1 = ((xd - xa) * (yb - ya) - (yd - ya) * (xb - xa))
         t2 = ((xd - xb) * (yc - yb) - (yd - yb) * (xc - xb))
