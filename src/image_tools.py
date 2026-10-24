@@ -93,14 +93,10 @@ def _perspectiveTransformation(points, rect):
     p.append((points[2].x(), points[2].y()))
 
     # widths and heights of the projected image
-    # w1 = scipy.spatial.distance.euclidean(p[0], p[1])
     w1 = math.sqrt(pow((points[0].x() - points[1].x()), 2) + pow((points[0].y() - points[1].y()), 2))
-    # w2 = scipy.spatial.distance.euclidean(p[2], p[3])
     w2 = math.sqrt(pow((points[2].x() - points[3].x()), 2) + pow((points[2].y() - points[3].y()), 2))
 
-    # h1 = scipy.spatial.distance.euclidean(p[0], p[2])
     h1 = math.sqrt(pow((points[0].x() - points[2].x()), 2) + pow((points[0].y() - points[2].y()), 2))
-    # h2 = scipy.spatial.distance.euclidean(p[1], p[3])
     h2 = math.sqrt(pow((points[1].x() - points[3].x()), 2) + pow((points[1].y() - points[3].y()), 2))
 
     w = max(w1, w2)
