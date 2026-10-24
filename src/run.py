@@ -1,4 +1,5 @@
 import sys
+
 from PySide6.QtCore import QCoreApplication, QLibraryInfo, QLocale, QTranslator
 from PySide6.QtWidgets import QApplication
 

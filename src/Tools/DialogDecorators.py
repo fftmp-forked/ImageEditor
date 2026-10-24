@@ -1,4 +1,4 @@
-from PySide6.QtCore import Qt, QSettings
+from PySide6.QtCore import QSettings, Qt
 from PySide6.QtWidgets import QApplication
 
 

@@ -1,7 +1,7 @@
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QPalette, QImage, QPixmap
-from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy
 from PySide6.QtCore import Signal as pyqtSignal
+from PySide6.QtGui import QImage, QPalette, QPixmap
+from PySide6.QtWidgets import QLabel, QSizePolicy, QWidget
 
 
 class ImageScrollLabel(QLabel):

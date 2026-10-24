@@ -17,6 +17,7 @@ from PySide6.QtCore import (
     QTimer,
     QUrl,
 )
+from PySide6.QtCore import Signal as pyqtSignal
 from PySide6.QtGui import (
     QAction,
     QBitmap,
@@ -61,37 +62,35 @@ from PySide6.QtWidgets import (
     QSizePolicy,
     QSlider,
     QSpinBox,
-    QStyle,
     QStatusBar,
+    QStyle,
     QTabWidget,
     QToolBar,
     QVBoxLayout,
     QWidget,
 )
-from PySide6.QtCore import Signal as pyqtSignal
 
 try:
     from .CameraDialog import CameraDialog
-    from .UndoStack import UndoStack
     from .image_tools import *
+    from .UndoStack import UndoStack
 except ImportError:
     from CameraDialog import CameraDialog
-    from UndoStack import UndoStack
     from image_tools import *
+    from UndoStack import UndoStack
 try:
-    from OpenNumismat import HOME_PATH, IMAGE_PATH
+    from OpenNumismat import HOME_PATH, IMAGE_PATH, version
     from OpenNumismat.Tools import TemporaryDir
-    from OpenNumismat.Tools.DialogDecorators import storeDlgSizeDecorator, storeDlgPositionDecorator
-    from OpenNumismat.Tools.Gui import getSaveFileName, Splitter, ColorButton
-    from OpenNumismat.Tools.misc import readImageFilters, saveImageFilters
     from OpenNumismat.Tools.dependencies import HAS_REMBG
-    from OpenNumismat import version
+    from OpenNumismat.Tools.DialogDecorators import storeDlgPositionDecorator, storeDlgSizeDecorator
+    from OpenNumismat.Tools.Gui import ColorButton, Splitter, getSaveFileName
+    from OpenNumismat.Tools.misc import readImageFilters, saveImageFilters
 
     PORTABLE = version.Portable
 except ModuleNotFoundError:
     from Tools import TemporaryDir
-    from Tools.DialogDecorators import storeDlgSizeDecorator, storeDlgPositionDecorator
-    from Tools.Gui import getSaveFileName, Splitter, ColorButton
+    from Tools.DialogDecorators import storeDlgPositionDecorator, storeDlgSizeDecorator
+    from Tools.Gui import ColorButton, Splitter, getSaveFileName
     from Tools.misc import readImageFilters, saveImageFilters
 
     HOME_PATH = '.'

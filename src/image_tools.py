@@ -1,6 +1,7 @@
-from PySide6.QtCore import Qt, QPointF, QPoint, QRectF
-from PySide6.QtGui import QTransform, QPolygonF, QImage, QPainter, QBrush
 import math
+
+from PySide6.QtCore import QPoint, QPointF, QRectF, Qt
+from PySide6.QtGui import QBrush, QImage, QPainter, QPolygonF, QTransform
 
 
 def findBorders(image):
@@ -155,7 +156,7 @@ def _perspectiveTransformation(points, rect):
 
 def rembg(image, model_name, crop=False):
     from PIL import ImageQt
-    from rembg import remove, new_session
+    from rembg import new_session, remove
 
     im = ImageQt.fromqimage(image)
     rembg_session = new_session(model_name)
