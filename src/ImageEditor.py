@@ -1783,10 +1783,9 @@ class ImageEditorDialog(QDialog):
             return
 
         scale = zoom / 100
-        if scale < self.minScale:
-            scale = self.minScale
-        if scale > ZOOM_MAX / 100:
-            scale = ZOOM_MAX / 100
+        scale = max(scale, self.minScale)
+        scale = min(scale, ZOOM_MAX / 100)
+
         need_scale = scale / self.scale
 
         if scale > self.minScale:
@@ -1909,7 +1908,7 @@ class ImageEditorDialog(QDialog):
         w = self._startPixmap.width()
         h = self._startPixmap.height()
         if self.rotateDlg.isAutoCrop():
-            if (-45 < value and value < 45) or value < -135 or 135 < value:
+            if abs(value) < 45 or abs(value) > 135:
                 xoffset = (pixmap.width() - w) // 2
                 yoffset = (pixmap.height() - h) // 2
                 rect = QRect(xoffset, yoffset, w, h)
