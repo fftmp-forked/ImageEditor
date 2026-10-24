@@ -754,7 +754,7 @@ class GraphicsBoundingItem(QObject):
         self.updateRect()
 
     def items(self):
-        return [self.mask, ] + self.lines + self.points
+        return [self.mask, *self.lines, *self.points]
 
     def cropPoints(self):
         return [p.pos() for p in self.points]
@@ -934,7 +934,7 @@ class GraphicsCircleBoundingItem(QObject):
         self.updateRect()
 
     def items(self):
-        return [self.mask, self.circle] + self.points
+        return [self.mask, self.circle, *self.points]
 
     def cropPoints(self):
         return [p.pos() for p in self.points]
@@ -2253,10 +2253,7 @@ class ImageEditorDialog(QDialog):
         dlg.deleteLater()
 
     def rembg(self):
-        if PORTABLE:
-            path = HOME_PATH
-        else:
-            path = QStandardPaths.standardLocations(QStandardPaths.AppLocalDataLocation)[0]
+        path = HOME_PATH if PORTABLE else QStandardPaths.standardLocations(QStandardPaths.AppLocalDataLocation)[0]
 
         settings = QSettings()
         model_name = settings.value('image_viewer/ai_model', 'u2net')

@@ -76,12 +76,7 @@ class ImageScrollLabel(QLabel):
         if not self.isVisible():
             return
 
-        if self.image.width() > self.width() or \
-                                        self.image.height() > self.height():
-            scaledImage = self.image.scaled(self.size(),
-                                Qt.KeepAspectRatio, Qt.SmoothTransformation)
-        else:
-            scaledImage = self.image
+        scaledImage = self.image.scaled(self.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation) if self.image.width() > self.width() or self.image.height() > self.height() else self.image
 
         pixmap = QPixmap.fromImage(scaledImage)
         self.setPixmap(pixmap)
