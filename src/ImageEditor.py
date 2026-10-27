@@ -1,3 +1,4 @@
+import importlib.util
 import os
 
 from PySide6.QtCore import (
@@ -89,7 +90,6 @@ except ImportError:
 try:
     from OpenNumismat import HOME_PATH, IMAGE_PATH, version
     from OpenNumismat.Tools import TemporaryDir
-    from OpenNumismat.Tools.dependencies import HAS_REMBG
     from OpenNumismat.Tools.DialogDecorators import storeDlgPositionDecorator, storeDlgSizeDecorator
     from OpenNumismat.Tools.Gui import ColorButton, Splitter, getSaveFileName
     from OpenNumismat.Tools.misc import readImageFilters, saveImageFilters
@@ -104,7 +104,9 @@ except ModuleNotFoundError:
     HOME_PATH = '.'
     IMAGE_PATH = QStandardPaths.standardLocations(QStandardPaths.PicturesLocation)[0]
     PORTABLE = True
-    HAS_REMBG = True
+
+HAS_REMBG = importlib.util.find_spec("rembg") is not None and importlib.util.find_spec("PIL") is not None
+
 
 ZOOM_LIST = (600, 480, 385, 310, 250, 200, 158, 125,
              100, 80, 64, 50, 40, 32, 26, 20, 16,)
