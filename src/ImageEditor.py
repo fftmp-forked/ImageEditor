@@ -79,28 +79,18 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-try:
-    from .CameraDialog import CameraDialog
-    from .image_tools import cropCircle, findBorders, perspectiveTransformation, rembg
-    from .UndoStack import UndoStack
-except ImportError:
-    from CameraDialog import CameraDialog
-    from image_tools import cropCircle, findBorders, perspectiveTransformation, rembg
-    from UndoStack import UndoStack
+from .CameraDialog import CameraDialog
+from .image_tools import cropCircle, findBorders, perspectiveTransformation, rembg
+from .Tools import TemporaryDir
+from .Tools.DialogDecorators import storeDlgPositionDecorator, storeDlgSizeDecorator
+from .Tools.Gui import ColorButton, Splitter, getSaveFileName
+from .Tools.misc import readImageFilters, saveImageFilters
+from .UndoStack import UndoStack
+
 try:
     from OpenNumismat import HOME_PATH, IMAGE_PATH, version
-    from OpenNumismat.Tools import TemporaryDir
-    from OpenNumismat.Tools.DialogDecorators import storeDlgPositionDecorator, storeDlgSizeDecorator
-    from OpenNumismat.Tools.Gui import ColorButton, Splitter, getSaveFileName
-    from OpenNumismat.Tools.misc import readImageFilters, saveImageFilters
-
     PORTABLE = version.Portable
 except ModuleNotFoundError:
-    from Tools import TemporaryDir
-    from Tools.DialogDecorators import storeDlgPositionDecorator, storeDlgSizeDecorator
-    from Tools.Gui import ColorButton, Splitter, getSaveFileName
-    from Tools.misc import readImageFilters, saveImageFilters
-
     HOME_PATH = '.'
     IMAGE_PATH = QStandardPaths.standardLocations(QStandardPaths.PicturesLocation)[0]
     PORTABLE = True

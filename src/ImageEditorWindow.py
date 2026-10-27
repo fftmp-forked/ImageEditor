@@ -2,11 +2,11 @@ from PySide6.QtCore import QDir, QFileInfo, QSettings, QStandardPaths, Qt
 from PySide6.QtGui import QAction, QBrush, QColor, QIcon, QImage
 from PySide6.QtWidgets import QApplication, QDialog, QFileDialog, QGroupBox, QHBoxLayout, QMessageBox, QRadioButton, QStyle
 
-from ImageEditor import ImageEditorDialog, SettingsDialog
-from ImageProxy import ImageProxy
-from ImageScrollLabel import ImageScrollLabel
-from Tools.Gui import ColorButton, getSaveFileName
-from Tools.misc import saveImageFilters
+from .ImageEditor import ImageEditorDialog, SettingsDialog
+from .ImageProxy import ImageProxy
+from .ImageScrollLabel import ImageScrollLabel
+from .Tools.Gui import ColorButton, getSaveFileName
+from .Tools.misc import saveImageFilters
 
 IMAGE_PATH = QStandardPaths.standardLocations(QStandardPaths.PicturesLocation)[0]
 

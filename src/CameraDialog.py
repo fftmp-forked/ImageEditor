@@ -7,7 +7,7 @@ from PySide6.QtWidgets import QComboBox, QDialog, QMessageBox, QPushButton, QVBo
 try:
     from OpenNumismat.Tools.DialogDecorators import storeDlgSizeDecorator
 except ModuleNotFoundError:
-    from Tools.DialogDecorators import storeDlgSizeDecorator
+    from .Tools.DialogDecorators import storeDlgSizeDecorator
 
 
 @storeDlgSizeDecorator
